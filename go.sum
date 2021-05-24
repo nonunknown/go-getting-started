@@ -1,2 +1,4 @@
+github.com/gen2brain/raylib-go v0.0.0-20210227124741-9d258bad6516 h1:vm9imS9/veDqkgl/MEDX35jywHzLwUrS/XDXsiKnpPI=
+github.com/gen2brain/raylib-go v0.0.0-20210227124741-9d258bad6516/go.mod h1:LUVRDQbnxUaOgzLzW5lMS+IcbqlXHIqIA9wq8wxzmcA=
 github.com/gorilla/websocket v1.4.2 h1:+/TMaTYc4QFitKJxsQ7Yye35DkWvkdLcvGKqM+x0Ufc=
 github.com/gorilla/websocket v1.4.2/go.mod h1:YR8l580nyteQvAITg2hZ9XVh4b55+EU/adAjf1fMHhE=

@@ -5,17 +5,17 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	// "runtime"
+	"runtime"
 	"os"
-	// rl "github.com/gen2brain/raylib-go/raylib"
+	rl "github.com/gen2brain/raylib-go/raylib"
 	"github.com/gorilla/websocket"
 )
 
 // var addr *string;
 
-// func init() {
-// 	runtime.LockOSThread()
-// }
+func init() {
+	runtime.LockOSThread()
+}
 
 // func test() {
 // 	// flag.Parse()
@@ -53,16 +53,19 @@ func main() {
 	}
 
 	log.Println("PORT IS: ", port)
-	// addr = flag.String("addr", "0.0.0.0:"+string(port), "http service address")
-	http.HandleFunc("/gameEngine", handler)
-	http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "JumpAndShoot engine is running on this port")
-	})
 
-	err := http.ListenAndServe(":"+string(port), nil)
-	if err != nil {
-		log.Fatal("ListenAndServe: ", err)
-	}
+
+	go func() {
+		http.HandleFunc("/gameEngine", handler)
+		http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
+			fmt.Fprintf(w, "JumpAndShoot engine is running on this port")
+		})
+
+		err := http.ListenAndServe(":"+string(port), nil)
+		if err != nil {
+			log.Fatal("ListenAndServe: ", err)
+		}
+	}()
 
 
 
@@ -74,24 +77,24 @@ func main() {
 
 	// log.Println("Initializing Window ....")
 
-	// screenWidth := int32(800)
-	// screenHeight := int32(450)
+	screenWidth := int32(100)
+	screenHeight := int32(100)
 
-	// rl.InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window")
-	// defer rl.CloseWindow()
+	rl.InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window")
+	defer rl.CloseWindow()
+	rl.HideWindow()
+	rl.SetTargetFPS(15)
+	log.Println("Raylib is running")
+	for !rl.WindowShouldClose() {
 
-	// rl.SetTargetFPS(60)
+		rl.BeginDrawing()
 
-	// for !rl.WindowShouldClose() {
+		rl.ClearBackground(rl.RayWhite)
 
-	// 	rl.BeginDrawing()
+		rl.DrawText("text", 190, 200, 20, rl.LightGray)
 
-	// 	rl.ClearBackground(rl.RayWhite)
-
-	// 	rl.DrawText(text, 190, 200, 20, rl.LightGray)
-
-	// 	rl.EndDrawing()
-	// }
+		rl.EndDrawing()
+	}
 }
 
 var upgrader = websocket.Upgrader{
