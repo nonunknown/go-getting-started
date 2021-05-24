@@ -1,4 +1,4 @@
-module github.com/heroku/go-getting-started
+module github.com/nonunknown/go-getting-started
 
 go 1.16
 
