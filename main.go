@@ -38,7 +38,7 @@ func init() {
 // 	}
 // }
 
-// var text string = "Waiting for godot"
+// var text string = "Waiting for godot 4"
 
 func main() {
 	//test
