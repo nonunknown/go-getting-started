@@ -2,7 +2,8 @@ module github.com/nonunknown/go-getting-started
 
 
 // +heroku goVersion go1.16
-// +heroku install github.com
+// +heroku install github.com/chunqian/go-raylib/raylib
+// +heroku install github.com/gorilla/websocket
 go 1.16
 
 require (
