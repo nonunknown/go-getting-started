@@ -1,13 +1,12 @@
 package main
 
 import (
-
 	"fmt"
 	"log"
 	"net/http"
-	"runtime"
 	"os"
-	rl "github.com/gen2brain/raylib-go/raylib"
+	"runtime"
+	rl "github.com/chunqian/go-raylib/raylib"
 	"github.com/gorilla/websocket"
 )
 
@@ -46,14 +45,13 @@ func main() {
 	// flag.Parse()
 	port := os.Getenv("PORT")
 
-	if (port == "") {
+	if port == "" {
 		// log.Fatal("Port is not set")
 		port = "5000"
-		
+
 	}
 
 	log.Println("PORT IS: ", port)
-
 
 	go func() {
 		http.HandleFunc("/gameEngine", handler)
@@ -67,11 +65,6 @@ func main() {
 		}
 	}()
 
-
-
-
-
-
 	// go test()
 	// log.Println("Started....")
 
@@ -82,7 +75,7 @@ func main() {
 
 	rl.InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window")
 	defer rl.CloseWindow()
-	rl.HideWindow()
+	rl.GuiSetState(int32(rl.FLAG_WINDOW_HIDDEN))
 	rl.SetTargetFPS(15)
 	log.Println("Raylib is running")
 	for !rl.WindowShouldClose() {
