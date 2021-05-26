@@ -1,5 +1,8 @@
 module github.com/nonunknown/go-getting-started
 
+
+// +heroku goVersion go1.16
+// +heroku install github.com
 go 1.16
 
 require (
