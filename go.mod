@@ -1,12 +1,15 @@
-module github.com/nonunknown/go-getting-started
-
 
 // +heroku goVersion go1.16
-// +heroku install github.com/chunqian/go-raylib/raylib
-// +heroku install github.com/gorilla/websocket
+// +heroku install ./local/...
+
+module github.com/nonunknown/kobu-heroku
+
 go 1.16
 
 require (
-	github.com/chunqian/go-raylib v0.0.0-20210519095144-df36dae46c76
+	github.com/chunqian/go-raylib v0.0.0-20210526135805-f5762ada9240
 	github.com/gorilla/websocket v1.4.2
 )
+
+replace github.com/chunqian/go-raylib v0.0.0-20210526135805-f5762ada9240 => ./local/github.com/chunqian/go-raylib
+replace github.com/gorilla/websocket v1.4.2 => ./local/github.com/gorilla/websocket
