@@ -1,6 +1,6 @@
 
 // +heroku goVersion go1.16
-// +heroku install ./local/...
+
 
 module github.com/nonunknown/kobu-heroku
 
